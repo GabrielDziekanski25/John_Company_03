@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Ícone -->
+  <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/png" />
+
+  <!-- Fonte Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuração Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyan: { DEFAULT: 'hsl(180, 66%, 49%)' },
+            cyanLight: { DEFAULT: 'hsl(180, 66%, 69%)' },
+            darkViolet: { DEFAULT: 'hsl(257, 27%, 26%)' },
+            red: { DEFAULT: 'hsl(0, 87%, 67%)' },
+            grayishViolet: { DEFAULT: 'hsl(257, 7%, 63%)' },
+            veryDarkBlue: { DEFAULT: 'hsl(260, 8%, 14%)' },
+            veryDarkViolet: { DEFAULT: '#1F1F24' },
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          },
+          spacing: {
+            180: '32rem'
+          }
+        }
+      }
+    };
+  </script>
+  <title>Shortly</title>
+  <style>
+    #cta {
+      background-image: url('images/bg-boost-desktop.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .ficon:hover {
+      filter: invert(79%) sepia(61%) saturate(464%) hue-rotate(130deg) brightness(89%) contrast(85%);
+    }
+    .hamburguer {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      transition: all 0.25s;
+      position: relative;
+    }
+    .hamburguer-top,
+    .hamburguer-middle,
+    .hamburguer-bottom {
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      top: 0;
+      left: 0;
+      background: #9c9aa6;
+      transform: rotate(0);
+      transition: all 0.5s;
+    }
+    .hamburguer-middle {
+      transform: translateY(7px);
+    }
+    .hamburguer-bottom {
+      transform: translateY(14px);
+    }
+    .open {
+      transform: rotate(90deg);
+    }
+    .open .hamburguer-top {
+      transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
+    .open .hamburguer-middle {
+      display: none;
+    }
+    .open .hamburguer-bottom {
+      transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <!-- Navigation -->
+  <nav class="relative container mx-auto p-6">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-20">
+        <img src="images/logo.svg" alt="Logo" />
+        <div class="hidden space-x-8 font-bold lg:flex">
+          <a href="#" class="text-grayishViolet hover:text-darkViolet">Features</a>
+          <a href="#" class="text-grayishViolet hover:text-darkViolet">Pricing</a>
+          <a href="#" class="text-grayishViolet hover:text-darkViolet">Resources</a>
+        </div>
+      </div>
+      <div class="hidden items-center space-x-6 font-bold text-grayishViolet lg:flex">
+        <div class="hover:text-veryDarkViolet">Login</div>
+        <a href="#" class="px-8 py-3 font-bold text-white bg-cyan rounded-full hover:opacity-70">Sign Up</a>
+      </div>
+      <button id="menu-btn" class="block hamburguer lg:hidden focus:outline-none" type="button">
+        <span class="hamburguer-top"></span>
+        <span class="hamburguer-middle"></span>
+        <span class="hamburguer-bottom"></span>
+      </button>
+    </div>
+
+    <div id="menu" class="absolute hidden p-6 rounded-lg bg-darkViolet left-6 right-6 top-20 z-100">
+      <div class="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm">
+        <a href="#" class="w-full text-center">Link 1</a>
+        <a href="#" class="w-full text-center">Link 2</a>
+        <a href="#" class="w-full text-center">Link 3</a>
+        <a href="#" class="w-full pt-6 border-t border-gray-400 text-center">Login</a>
+        <a href="#" class="w-full py-3 text-center rounded-full bg-cyan">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section (totalmente exibida) -->
+  <section id="hero">
+    <div class="container flex flex-col-reverse mx-auto p-6 lg:flex-row">
+      <div class="flex flex-col space-y-10 mb-44 lg:mt-16 lg:w-1/2">
+        <h1 class="text-5xl font-bold text-center lg:text-6xl lg:text-left">
+          More than just shorter links
+        </h1>
+        <p class="text-2xl text-center text-gray-400 lg:max-w-md lg:text-left">
+          Build your brand’s recognition and get detailed insights on how your links are performing.
+        </p>
+        <div class="mx-auto lg:mx-0">
+          <a href="#" class="px-10 py-5 text-2xl font-bold text-white bg-cyan rounded-full lg:text-base hover:opacity-70">
+            Get Started
+          </a>
+        </div>
+      </div>
+      <div class="mb-24 mx-auto md:w-180 lg:mb-0 lg:w-1/2">
+        <img src="images/illustration-working.svg" alt="Working Illustration" class="w-[90%] mx-auto lg:float-right" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="cta" class="py-24 bg-darkViolet">
+    <div class="flex flex-col p-2 space-y-6">
+      <h5 class="mx-auto text-4xl font-bold text-center text-white">
+        Boost your links
+      </h5>
+      <button class="px-10 py-5 mx-auto text-2xl font-bold text-white rounded-full bg-cyan hover:bg-cyanLight md:text-base md:py-3 focus:outline-none">
+        Get Started
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-16 bg-veryDarkViolet">
+    <div class="container mx-auto flex flex-col items-center justify-between space-y-16 md:flex-row md:space-y-0 md:items-start">
+      <img src="images/logo.svg" alt="logo">
+      <div class="flex flex-col md:flex-row space-y-16 md:space-y-0 md:space-x-20">
+        <div class="flex flex-col items-center w-full md:items-start">
+          <div class="mb-5 font-bold text-white capitalize">Features</div>
+          <div class="flex flex-col items-center space-y-3 md:items-start">
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">Link 1</a>
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">Link 2</a>
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">Link 3</a>
+          </div>
+        </div>
+        <div class="flex flex-col items-center w-full md:items-start">
+          <div class="mb-5 font-bold text-white capitalize">Resources</div>
+          <div class="flex flex-col items-center space-y-3 md:items-start">
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">Link 4</a>
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">Link 5</a>
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">Link 6</a>
+          </div>
+        </div>
+        <div class="flex flex-col items-center w-full md:items-start">
+          <div class="mb-5 font-bold text-white capitalize">Company</div>
+          <div class="flex flex-col items-center space-y-3 md:items-start">
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">About</a>
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">Our Team</a>
+            <a href="#" class="capitalize text-grayishViolet hover:text-cyan">Careers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
